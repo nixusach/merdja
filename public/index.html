@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROUICOMED</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav-foot.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="images/logo1.png" alt="Logo ROUICOMED" class="logo">
+            <span class="company-name">ROUICOMED</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="products.html">Produits</a>
+            <a href="contactus.html">Contactez-nous</a>
+            <a href="cart.html">Panier</a>
+        </div>
+        
+        <!-- Add the same auth buttons structure to index.html's navbar -->
+<!-- Replace the navbar auth section with this -->
+<div id="auth-buttons">
+    <a href="login.html" class="login-btn" id="login-button">
+        <span>Connexion</span>
+        <i class="fas fa-user"></i>
+    </a>
+    <div id="user-profile" style="display: none;">
+        <div class="user-circle" id="user-circle">
+            <span id="user-initials"></span>
+            <div class="user-tooltip" id="user-fullname"></div>
+        </div>
+        <a href="#" class="logout-btn" id="logout-button">
+            <span>Déconnexion</span>
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+</div>
+
+    </nav>
+
+    <div class="slider-container">
+        <div class="slider">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <div class="content-container">
+                    <div class="image-section">
+                        <img src="images/21.jpg" alt="Image Produit 1">
+                    </div>
+                    <div class="text-section">
+                        <h1>Médicaments Dentaires Professionnels</h1>
+                        <p>Médicaments dentaires de haute qualité incluant anesthésiques, antiseptiques et matériaux de restauration pour des soins patients supérieurs.</p>
+                        <a href="shop.html" class="shop-button">Acheter Maintenant</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="content-container">
+                    <div class="image-section">
+                        <img src="images/3.jpg" alt="Image Produit 2">
+                    </div>
+                    <div class="text-section">
+                        <h1>Instruments Dentaires de Précision</h1>
+                        <p>Instruments d'examen, de restauration et chirurgicaux de qualité premium conçus pour la précision et la durabilité en pratique clinique.</p>
+                        <a href="shop.html" class="shop-button">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="content-container">
+                    <div class="image-section">
+                        <img src="images/img1.jpg" alt="Image Produit 3">
+                    </div>
+                    <div class="text-section">
+                        <h1>Solutions de Contrôle des Infections</h1>
+                        <p>Gamme complète de produits de stérilisation et désinfection pour maintenir les normes d'hygiène les plus élevées dans votre cabinet.</p>
+                        <a href="shop.html" class="shop-button">Voir la Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-controls">
+            <button class="prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Add this before the footer -->
+<div class="about-section">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="images/my-logo.png" alt="Notre Équipement Dentaire">
+        </div>
+        <div class="about-content">
+            <h2>À Propos de ROUICOMED</h2>
+            <p>Depuis 2010, ROUICOMED est un fournisseur de confiance de produits et équipements dentaires de haute qualité pour les professionnels à travers le Maroc. Notre engagement envers l'excellence et la satisfaction client a fait de nous un leader dans l'industrie des fournitures dentaires.</p>
+            
+            <div class="about-features">
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>15+ Ans d'Expérience</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Produits de Qualité Certifiée</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Livraison Nationale</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Support Professionnel</span>
+                </div>
+            </div>
+            
+            <a href="about.html" class="learn-more-btn">En Savoir Plus</a>
+        </div>
+    </div>
+</div>
+
+    
+
+<div class="categories-section">
+    <div class="section-header">
+        <h2>Nos Catégories</h2>
+        <p>Optimisez votre pratique avec nos catégories specialisées</p>
+    </div>
+    <div class="categories-container" id="categories-container">
+        <!-- Categories will be loaded here dynamically -->
+    </div>
+</div>
+
+
+        <!-- Featured Products Section -->
+        <div class="featured-products">
+            <div class="section-header">
+                <h2>Produits Phares</h2>
+                <p>Découvrez nos produits dentaires les plus vendus</p>
+            </div>
+            <div class="products-container">
+                <!-- Products will be loaded here dynamically -->
+            </div>
+            <div class="view-all">
+                <a href="products.html" class="view-all-btn">Voir Tous les Produits</a>
+            </div>
+        </div>
+    
+        <!-- Testimonials Section -->
+        <div class="testimonials-section">
+            <div class="section-header">
+                <h2>Témoignages de Nos Clients</h2>
+                <p>Reconnu par les professionnels dentaires du monde entier</p>
+            </div>
+            <div class="testimonials-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "ROUICOMED fournit un équipement dentaire exceptionnel qui a transformé ma pratique. Leurs produits sont fiables et leur service client est remarquable."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="images/dr.jpg" alt="Dr. Smith">
+                        </div>
+                        <div class="author-info">
+                            <h4>Dr. Sarah Smith</h4>
+                            <p>Chirurgien Dentiste, Casablanca</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "J'utilise les produits ROUICOMED depuis des années. La qualité est toujours excellente et ils offrent des prix compétitifs par rapport aux autres fournisseurs."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="images/dr1.jpg" alt="Dr. Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Dr. Ahmed Johnson</h4>
+                            <p>Orthodontiste, Rabat</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Livraison rapide et matériaux de haute qualité. Leurs résines composites sont mon choix privilégié pour tout travail de restauration dans ma clinique."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="images/dr2.jpg" alt="Dr. Lee">
+                        </div>
+                        <div class="author-info">
+                            <h4>Dr. Fatima Lee</h4>
+                            <p>Prothésiste Dentaire, Marrakech</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Column 1: Logo, Company Name, Social Links -->
+            <div class="footer-column column-1">
+                <div class="logo-section">
+                    <img src="images/logo1.png" alt="Logo de l'entreprise" class="footer-logo">
+                    <div class="company-name" data-text="ROUICOMED">
+                        <span class="actual-text">&nbsp;ROUICOMED&nbsp;</span>
+                        <span aria-hidden="true" class="hover-text">&nbsp;ROUICOMED&nbsp;</span>
+                    </div>
+                </div>
+                <p class="company-description">
+                    Spécialistes en produits dentaires de haute qualité. Au service des professionnels depuis 2010 avec des équipements et matériaux premium.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100063719133519" class="social-link facebook" target="_blank">
+                        <img src="images/fb.png" alt="Facebook" class="social-icon">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://wa.me/213658096091" class="social-link whatsapp" target="_blank">
+                        <img src="images/wt.png" alt="WhatsApp" class="social-icon">
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Column 2: Page Links -->
+            <div class="footer-column column-2">
+                <h3 class="footer-heading">Navigation</h3>
+                <ul class="page-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Produits</a></li>
+                    <li><a href="contact.html">Contactez-nous</a></li>
+                    <li><a href="login.html">Connexion</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 3: Contact Info -->
+            <div class="footer-column column-3">
+                <h3 class="footer-heading">Contact</h3>
+                <ul class="contact-info">
+                    <li class="address">
+                        <img src="images/gps.png" alt="Adresse" class="contact-icon">
+                        <span>74 Cité El-Merdja, Rouiba</span>
+                    </li>
+                    <li class="phone">
+                        <img src="images/phone-call.png" alt="Téléphone" class="contact-icon">
+                        <span>0658096091 - 0553347119</span>
+                    </li>
+                    <li class="email">
+                        <img src="images/email.png" alt="Email" class="contact-icon">
+                        <span>rouicomed@yahoo.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/index-script.js"></script>
+    <script src="js/auth-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord Admin - Produits</title>
+    <link rel="stylesheet" href="css/admin-products.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo1.png" alt="Logo" />
+                    </a>
+                </div>
+                <h1>ROUICOMED</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="admin-users.html" class="nav-link"><i class="fas fa-users"></i> Utilisateurs</a></li>
+                    <li><a href="admin-products.html" class="nav-link active"><i class="fas fa-box-open"></i> Produits</a></li>
+                    <li><a href="admin-orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Commandes</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header">
+                <h2>Gestion des Produits</h2>
+            </div>
+            
+            <div class="tabs">
+                <button id="allProductsTab" class="tab-btn active">Tous les Produits</button>
+                <button id="addProductTab" class="tab-btn">Ajouter un Produit</button>
+                <button id="modifyProductTab" class="tab-btn">Modifier/Supprimer</button>
+                <button id="updateQuantitiesTab" class="tab-btn">Màj des Quantités</button>
+                <button id="manageCategoriesTab" class="tab-btn">Gérer les Catégories</button>
+            </div>
+            
+            <!-- All Products Section -->
+            <div id="allProductsSection" class="tab-content active">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="searchFilter">Rechercher par nom:</label>
+                        <input type="text" id="searchFilter" placeholder="Nom du produit...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="categoryFilter">Filtrer par catégorie:</label>
+                        <select id="categoryFilter">
+                            <option value="">Toutes les catégories</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sortBy">Trier par :</label>
+                        <select id="sortBy">
+                            <option value="name-asc">Nom (A-Z)</option>
+                            <option value="name-desc">Nom (Z-A)</option>
+                            <option value="price-asc">Prix (Croissant)</option>
+                            <option value="price-desc">Prix (Décroissant)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <!-- Update the table headers in All Products Section -->
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Variante</th>
+                                <th>Prix</th>
+                                <th>Quantité</th>
+                                <th>Disponible</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Products will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Add Product Section -->
+            <div id="addProductSection" class="tab-content">
+                <form id="addProductForm" class="product-form">
+                    <div class="form-group">
+                        <label for="addName">Nom du produit</label>
+                        <input type="text" id="addName" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addCategorySelect">Catégorie</label>
+                        <select id="addCategorySelect" class="category-select" required>
+                            <option value="">Sélectionner une catégorie</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Variantes</label>
+                        <div id="variantsContainer">
+                            <!-- Default variant will be added automatically -->
+                        </div>
+                        <button type="button" id="addVariantBtn" class="btn-secondary">+ Ajouter une variante</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addDescription">Description</label>
+                        <textarea id="addDescription" name="description" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addFeatured">Produit vedette</label>
+                        <input type="checkbox" id="addFeatured" name="featured">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Images</label>
+                        <div id="addImagesPreview" class="images-preview"></div>
+                        <input type="file" id="addImages" name="images" multiple accept="image/*">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Ajouter le produit</button>
+                </form>
+                
+                <!-- Excel Import Section -->
+                <div class="excel-import-section">
+                    <h3>Ou importer des produits depuis un fichier Excel</h3>
+                    <form id="excelImportForm" class="product-form">
+                        <div class="form-group">
+                            <label for="excelFile">Fichier Excel (.xlsx)</label>
+                            <input type="file" id="excelFile" name="excelFile" accept=".xlsx,.xls" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="importDescription">Description par défaut (optionnel)</label>
+                            <textarea id="importDescription" name="description" rows="2"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="importFeatured">Marquer tous comme produits vedettes</label>
+                            <input type="checkbox" id="importFeatured" name="featured">
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Importer les produits</button>
+                    </form>
+                    
+                    <div id="importPreview" class="import-preview" style="display: none;">
+                        <h4>Aperçu de l'importation</h4>
+                        <div class="table-container">
+                            <table id="previewTable">
+                                <thead>
+                                    <tr>
+                                        <th>Produit</th>
+                                        <th>Variante</th>
+                                        <th>Prix</th>
+                                        <th>Quantité</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <button id="confirmImportBtn" class="btn-primary" style="margin-top: 20px;">Confirmer l'importation</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- Modify/Delete Product Section -->
+            <div id="modifyProductSection" class="tab-content">
+                <div class="search-product">
+                    <input type="text" id="searchProductName" placeholder="Entrez le nom du produit">
+                    <button id="searchProductBtn" class="btn-secondary">Rechercher</button>
+                </div>
+                
+                <form id="modifyProductForm" class="product-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="modifyName">Nom du produit</label>
+                        <input type="text" id="modifyName" name="name" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modifyCategorySelect">Catégorie</label>
+                        <select id="modifyCategorySelect" class="category-select" required>
+                            <option value="">Sélectionner une catégorie</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Variantes</label>
+                        <div id="modifyVariantsContainer">
+                            <!-- Variants will be added here -->
+                        </div>
+                        <button type="button" id="modifyAddVariantBtn" class="btn-secondary">+ Ajouter une variante</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modifyDescription">Description</label>
+                        <textarea id="modifyDescription" name="description" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modifyFeatured">Produit vedette</label>
+                        <input type="checkbox" id="modifyFeatured" name="featured">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Images actuelles</label>
+                        <div id="currentImagesPreview" class="images-preview"></div>
+                    </div>
+                      
+                    <div class="form-group">
+                        <label>Ajouter plus d'images</label>
+                        <div id="modifyImagesPreview" class="images-preview"></div>
+                        <input type="file" id="modifyImages" name="images" multiple accept="image/*">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" id="deleteProductBtn" class="btn-primary danger">Supprimer le produit</button>
+                        <button type="submit" class="btn-primary">Mettre à jour</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Update Quantities Section -->
+            <div id="updateQuantitiesSection" class="tab-content">
+                <div class="excel-import-section">
+                    <h3>Mettre à jour les quantités depuis un fichier Excel</h3>
+                    <form id="updateQuantitiesForm" class="product-form">
+                        <div class="form-group">
+                            <label for="quantityExcelFile">Fichier Excel (.xlsx)</label>
+                            <input type="file" id="quantityExcelFile" name="excelFile" accept=".xlsx,.xls" required>
+                            <p class="help-text">Le fichier doit contenir les colonnes: Désignation (nom du variant) et Quantité</p>
+                        </div>
+                        <button type="submit" class="btn-primary">Mettre à jour les quantités</button>
+                    </form>
+                    
+                    <div id="quantityUpdatePreview" class="import-preview" style="display: none;">
+                        <h4>Aperçu des modifications</h4>
+                        <div class="table-container">
+                            <table id="quantityPreviewTable">
+                                <thead>
+                                    <tr>
+                                        <th>Produit</th>
+                                        <th>Variant</th>
+                                        <th>Ancienne Quantité</th>
+                                        <th>Nouvelle Quantité</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <button id="confirmQuantityUpdateBtn" class="btn-primary" style="margin-top: 20px;">Confirmer la mise à jour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Categories Section -->
+            <div id="manageCategoriesSection" class="tab-content">
+                <div class="categories-header">
+                    <button id="addCategoryBtn" class="btn-primary add">Ajouter une catégorie</button>
+                </div>
+                
+                <div class="categories-list">
+                    <!-- Categories will be loaded here -->
+                </div>
+                
+                <!-- Add Category Modal -->
+                <div id="addCategoryModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Ajouter une catégorie</h3>
+                        <form id="addCategoryForm">
+                            <div class="form-group">
+                                <label for="categoryName">Nom de la catégorie</label>
+                                <input type="text" id="categoryName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryImage">Image de la catégorie</label>
+                                <input type="file" id="categoryImage" name="image" accept="image/*" required>
+                                <div id="categoryImagePreview" class="image-preview"></div>
+                            </div>
+                            <button type="submit" class="btn-primary">Ajouter</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Edit Category Modal -->
+                <div id="editCategoryModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Modifier la catégorie</h3>
+                        <form id="editCategoryForm">
+                            <input type="hidden" id="editCategoryId">
+                            <div class="form-group">
+                                <label for="editCategoryName">Nom de la catégorie</label>
+                                <input type="text" id="editCategoryName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editCategoryImage">Image de la catégorie</label>
+                                <input type="file" id="editCategoryImage" name="image" accept="image/*">
+                                <div id="editCategoryImagePreview" class="image-preview"></div>
+                                <p class="image-note">Laisser vide pour garder l'image actuelle</p>
+                            </div>
+                            <button type="submit" class="btn-primary">Mettre à jour</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-products-script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            if (!isAdmin) {
+                document.body.innerHTML = `
+                    <div style="padding: 20px; text-align: center;">
+                        <h2>Accès refusé</h2>
+                        <p>Vous n'avez pas la permission d'accéder à cette page.</p>
+                        <a href="/index.html">Retour à l'accueil</a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Admin - Commandes</title>
+    <link rel="stylesheet" href="css/admin-orders.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo1.png" alt="Logo" />
+                    </a>
+                </div>
+                <h1>ROUICOMED</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="admin-users.html" class="nav-link"><i class="fas fa-users"></i> Utilisateurs</a></li>
+                    <li><a href="admin-products.html" class="nav-link"><i class="fas fa-box-open"></i> Produits</a></li>
+                    <li><a href="admin-orders.html" class="nav-link active"><i class="fas fa-shopping-cart"></i> Commandes</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header">
+                <h2>Gestion des Commandes</h2>
+            </div>
+            
+            <!-- Tabs container -->
+            <div class="tabs">
+                <button id="allOrdersTab" class="tab-btn active">Toutes les Commandes</button>
+                <button id="pendingOrdersTab" class="tab-btn">Commandes en Attente</button>
+                <button id="completedOrdersTab" class="tab-btn">Commandes Terminées</button>
+            </div>
+            
+            <!-- All Orders Section -->
+            <div id="allOrdersSection" class="tab-content active">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="searchFilter">Recherche :</label>
+                        <input type="text" id="searchFilter" placeholder="Rechercher par utilisateur ou email...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="statusFilter">Statut :</label>
+                        <select id="statusFilter">
+                            <option value="">Tous les statuts</option>
+                            <option value="pending">En attente</option>
+                            <option value="processing">En traitement</option>
+                            <option value="completed">Terminée</option>
+                            <option value="cancelled">Annulée</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="dateFilter">Période :</label>
+                        <select id="dateFilter">
+                            <option value="all">Toutes périodes</option>
+                            <option value="today">Aujourd'hui</option>
+                            <option value="week">Cette semaine</option>
+                            <option value="month">Ce mois</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                
+                <div class="table-container">
+                    <table id="ordersTable">
+<thead>
+    <tr>
+        <th>Date</th>
+        <th>Utilisateur</th>
+        <th>Email</th>
+        <th>Total</th>
+        <th>Statut</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+                        <tbody>
+                            <!-- Orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Pending Orders Section -->
+            <div id="pendingOrdersSection" class="tab-content">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="pendingSearchFilter">Recherche :</label>
+                        <input type="text" id="pendingSearchFilter" placeholder="Rechercher des commandes en attente...">
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="pendingOrdersTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Utilisateur</th>
+                                <th>Email</th>
+                                <th>Total</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Pending orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Completed Orders Section -->
+            <div id="completedOrdersSection" class="tab-content">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="completedSearchFilter">Recherche :</label>
+                        <input type="text" id="completedSearchFilter" placeholder="Rechercher des commandes terminées...">
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="completedOrdersTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Utilisateur</th>
+                                <th>Email</th>
+                                <th>Total</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Completed orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-orders-script.js"></script>
+    <script>
+        // Add this at the top of your HTML file
+        document.addEventListener('DOMContentLoaded', function() {
+            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            if (!isAdmin) {
+                document.body.innerHTML = `
+                    <div style="padding: 20px; text-align: center;">
+                        <h2>Accès refusé</h2>
+                        <p>Vous n'avez pas la permission d'accéder à cette page.</p>
+                        <a href="/index.html">Retour à l'accueil</a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

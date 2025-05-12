@@ -1,0 +1,431 @@
+/* nav-foot.css - Common Navbar and Footer Styles */
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 11vh;
+    background-color: #3e3b41;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 13%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.logo {
+    height: 7vh;
+    width: auto;
+}
+
+.company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+}
+
+.nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #5fff00;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f0f0f0;
+    color: #3e3b41;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin-left: auto;
+}
+
+.login-btn:hover {
+    background-color: #5fff00;
+    color: white;
+}
+
+.login-btn i {
+    font-size: 0.9rem;
+}
+
+/* User navigation styles */
+#auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #5fff00;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+}
+
+.user-tooltip {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.user-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+}
+
+.user-circle:hover .user-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: -35px;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #3e3b41;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.footer-column {
+    padding: 0 15px;
+}
+
+.column-1 {
+    flex: 0 0 45%;
+    text-align: left;
+}
+
+.column-2,
+.column-3 {
+    flex: 1;
+    text-align: left;
+}
+
+/* Company Name Animation Styles */
+.company-name {
+    --border-right: 3px;
+    --animation-color: #5fff00;
+    --fs-size: 1.5rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    position: relative;
+    text-transform: uppercase;
+    color: white;
+    -webkit-text-stroke: 0.5px var(--text-stroke-color);
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+/* Actual text (visible by default) */
+.actual-text {
+    position: relative;
+}
+
+/* Hover text (animation) */
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    color: var(--animation-color);
+    width: 0%;
+    left: 0;
+    top: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+
+/* Hover effect */
+.logo-section:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 5px var(--animation-color));
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: default;
+}
+
+.footer-logo {
+    height: 50px;
+    width: auto;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #5fff00;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Specific styles for WhatsApp if needed */
+.social-link.whatsapp:hover {
+    color: #5fff00; /* WhatsApp brand color for hover */
+}
+
+/* Column 2 Styles */
+.footer-heading {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #5fff00;
+}
+
+.page-links {
+    list-style-type: none;
+}
+
+.page-links li {
+    margin-bottom: 12px;
+}
+
+.page-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.page-links a:hover {
+    color: #5fff00;
+    padding-left: 5px;
+}
+
+/* Column 3 Styles */
+.contact-info {
+    list-style-type: none;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.contact-info span {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+}
+
+.company-description {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 95%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 5%;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-column {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .navbar-brand .company-name {
+        font-size: 1.2rem;
+    }
+    
+    .login-btn {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        position: static;
+        transform: none;
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #auth-buttons {
+        margin-top: 15px;
+    }
+    
+    .footer-container {
+        max-width: 90%;
+    }
+}
+
+
+
+.temp-notification {
+    position: fixed;
+    top: 17vh;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: white;
+    z-index: 9999;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    max-width: 350px;
+}
+
+.temp-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.temp-notification.error {
+    background-color: #ff4444;
+    border-left: 4px solid #cc0000;
+}
+
+.temp-notification.success {
+    background-color: #00C851;
+    border-left: 4px solid #007E33;
+}
+
+.temp-notification i {
+    margin-right: 10px;
+}
+
+.temp-notification-content {
+    display: flex;
+    align-items: center;
+}
+
+.temp-notification.info {
+    background-color: #33b5e5;
+    border-left: 4px solid #0099cc;
+}

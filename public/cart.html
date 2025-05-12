@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Panier - ROUICOMED</title>
+    <link rel="stylesheet" href="css/nav-foot.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="images/logo1.png" alt="Logo ROUICOMED" class="logo">
+            <span class="company-name">ROUICOMED</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="products.html">Produits</a>
+            <a href="contactus.html">Contactez-nous</a>
+            <a href="cart.html">Panier</a>
+        </div>
+        
+        <!-- Add the same auth buttons structure to index.html's navbar -->
+<!-- Replace the navbar auth section with this -->
+<div id="auth-buttons">
+    <a href="login.html" class="login-btn" id="login-button">
+        <span>Connexion</span>
+        <i class="fas fa-user"></i>
+    </a>
+    <div id="user-profile" style="display: none;">
+        <div class="user-circle" id="user-circle">
+            <span id="user-initials"></span>
+            <div class="user-tooltip" id="user-fullname"></div>
+        </div>
+        <a href="#" class="logout-btn" id="logout-button">
+            <span>Déconnexion</span>
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+</div>
+
+    </nav>
+
+    <div class="container">
+        <h1>Votre Panier d'Achat</h1>
+        
+        <div id="cartEmpty">
+            <p>Votre panier est vide</p>
+        </div>
+        
+        <div id="cartContent" style="display: none;">
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems">
+                    <!-- Les articles du panier seront insérés ici -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right">Total :</td>
+                        <td id="cartTotal">0 DA</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <div class="cart-actions">
+                <a href="products.html" class="btn">Continuer vos achats</a>
+                <button id="checkoutBtn" class="btn btn-primary">Passer la Commande</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Column 1: Logo, Company Name, Social Links -->
+            <div class="footer-column column-1">
+                <div class="logo-section">
+                    <img src="images/logo1.png" alt="Logo de l'entreprise" class="footer-logo">
+                    <div class="company-name" data-text="ROUICOMED">
+                        <span class="actual-text">&nbsp;ROUICOMED&nbsp;</span>
+                        <span aria-hidden="true" class="hover-text">&nbsp;ROUICOMED&nbsp;</span>
+                    </div>
+                </div>
+                <p class="company-description">
+                    Spécialistes en produits dentaires de haute qualité. Au service des professionnels depuis 2010 avec des équipements et matériaux premium.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100063719133519" class="social-link facebook" target="_blank">
+                        <img src="images/fb.png" alt="Facebook" class="social-icon">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://wa.me/213658096091" class="social-link whatsapp" target="_blank">
+                        <img src="images/wt.png" alt="WhatsApp" class="social-icon">
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Column 2: Page Links -->
+            <div class="footer-column column-2">
+                <h3 class="footer-heading">Navigation</h3>
+                <ul class="page-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Produits</a></li>
+                    <li><a href="contact.html">Contactez-nous</a></li>
+                    <li><a href="login.html">Connexion</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 3: Contact Info -->
+            <div class="footer-column column-3">
+                <h3 class="footer-heading">Contact</h3>
+                <ul class="contact-info">
+                    <li class="address">
+                        <img src="images/gps.png" alt="Adresse" class="contact-icon">
+                        <span>74 Cité El-Merdja, Rouiba</span>
+                    </li>
+                    <li class="phone">
+                        <img src="images/phone-call.png" alt="Téléphone" class="contact-icon">
+                        <span>0658096091 - 0553347119</span>
+                    </li>
+                    <li class="email">
+                        <img src="images/email.png" alt="Email" class="contact-icon">
+                        <span>rouicomed@yahoo.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Container -->
+    <div class="temp-notification" id="cart-notification">
+        <div class="temp-notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="temp-notification-message">Produit ajouté au panier !</span>
+        </div>
+    </div>
+
+    <script src="js/auth-utils.js"></script>
+    <script src="js/auth-script.js"></script>
+    <script src="js/cart-script.js"></script>
+</body>
+</html>

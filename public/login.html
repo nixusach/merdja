@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion | ROUICOMED</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/nav-foot.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="images/logo1.png" alt="Logo ROUICOMED" class="logo">
+            <span class="company-name">ROUICOMED</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="products.html">Produits</a>
+            <a href="contactus.html">Contactez-nous</a>
+            <a href="cart.html">Panier</a>
+        </div>
+        
+        <!-- Add the same auth buttons structure to index.html's navbar -->
+<!-- Replace the navbar auth section with this -->
+<div id="auth-buttons">
+    <a href="login.html" class="login-btn" id="login-button">
+        <span>Connexion</span>
+        <i class="fas fa-user"></i>
+    </a>
+    <div id="user-profile" style="display: none;">
+        <div class="user-circle" id="user-circle">
+            <span id="user-initials"></span>
+            <div class="user-tooltip" id="user-fullname"></div>
+        </div>
+        <a href="#" class="logout-btn" id="logout-button">
+            <span>Déconnexion</span>
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+</div>
+
+    </nav>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-left">
+            <div class="login-left-content">
+                <h2>Bienvenue</h2>
+                <p>Accédez à votre compte pour gérer vos commandes, suivre les livraisons et consulter votre historique d'achats.</p>
+                <p>Nouveau sur ROUICOMED ? Créez un compte pour bénéficier d'un paiement plus rapide et d'offres exclusives.</p>
+                <div class="login-left-image">
+                    <img src="images/13.jpg" alt="Produits ROUICOMED">
+                </div>
+            </div>
+        </div>
+        <div class="login-right">
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Connexion</div>
+                <div class="auth-tab" data-tab="register">Inscription</div>
+            </div>
+
+            <!-- Login Form -->
+            <div class="auth-content active" id="login-content">
+                <div class="login-header">
+                    <h1>Se Connecter</h1>
+                    <p>Entrez vos identifiants pour accéder à votre compte</p>
+                </div>
+                <form class="login-form" id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Adresse Email</label>
+                        <input type="email" id="login-email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group password-field">
+                        <label for="login-password">Mot de passe</label>
+                        <input type="password" id="login-password" name="password" required placeholder="••••••••">
+                        <i class="far fa-eye password-toggle" id="toggle-login-password"></i>
+                    </div>
+                    <div class="form-options">
+                        <a href="#" class="forgot-password" id="show-forgot-password">Mot de passe oublié ?</a>
+                    </div>
+                    <button type="submit" class="login-btn1">Se Connecter</button>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div class="auth-content" id="register-content">
+                <div class="login-header">
+                    <h1>Créer un Compte</h1>
+                    <p>Rejoignez notre communauté dès aujourd'hui</p>
+                </div>
+                <form class="login-form" id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Nom Complet</label>
+                        <input type="text" id="register-name" name="name" required placeholder="Jean Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Adresse Email</label>
+                        <input type="email" id="register-email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone">Numéro de Téléphone</label>
+                        <input type="tel" id="register-phone" name="phone" required placeholder="ex. 0556 46 04 65">
+                    </div>
+                    <div class="form-group password-field">
+                        <label for="register-password">Mot de passe</label>
+                        <input type="password" id="register-password" name="password" required placeholder="••••••••">
+                        <i class="far fa-eye password-toggle" id="toggle-register-password"></i>
+                    </div>
+                    <div class="form-group password-field">
+                        <label for="register-confirm-password">Confirmer le mot de passe</label>
+                        <input type="password" id="register-confirm-password" name="confirm-password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="login-btn1">S'inscrire</button>
+                </form>
+            </div>
+
+            <!-- Forgot Password Form -->
+            <div class="auth-content" id="forgot-password-content">
+                <div class="login-header">
+                    <h1>Réinitialiser le Mot de Passe</h1>
+                    <p>Entrez votre email pour recevoir un lien de réinitialisation</p>
+                </div>
+                <form class="login-form" id="forgot-password-form">
+                    <div class="form-group">
+                        <label for="forgot-email">Adresse Email</label>
+                        <input type="email" id="forgot-email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    <button type="submit" class="login-btn">Envoyer le Lien</button>
+                </form>
+                <div class="register-link">
+                    Vous vous souvenez de votre mot de passe ? <a href="#" id="show-login">Connectez-vous ici</a>
+                </div>
+            </div>
+
+            <!-- Tab-specific links -->
+            <div class="register-link" id="login-footer">
+                Vous n'avez pas de compte ? <a href="#" id="show-register">Inscrivez-vous ici</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Column 1: Logo, Company Name, Social Links -->
+            <div class="footer-column column-1">
+                <div class="logo-section">
+                    <img src="images/logo1.png" alt="Logo de l'entreprise" class="footer-logo">
+                    <div class="company-name" data-text="ROUICOMED">
+                        <span class="actual-text">&nbsp;ROUICOMED&nbsp;</span>
+                        <span aria-hidden="true" class="hover-text">&nbsp;ROUICOMED&nbsp;</span>
+                    </div>
+                </div>
+                <p class="company-description">
+                    Spécialistes en produits dentaires de haute qualité. Au service des professionnels depuis 2010 avec des équipements et matériaux premium.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100063719133519" class="social-link facebook" target="_blank">
+                        <img src="images/fb.png" alt="Facebook" class="social-icon">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://wa.me/213658096091" class="social-link whatsapp" target="_blank">
+                        <img src="images/wt.png" alt="WhatsApp" class="social-icon">
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Column 2: Page Links -->
+            <div class="footer-column column-2">
+                <h3 class="footer-heading">Navigation</h3>
+                <ul class="page-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Produits</a></li>
+                    <li><a href="contact.html">Contactez-nous</a></li>
+                    <li><a href="login.html">Connexion</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 3: Contact Info -->
+            <div class="footer-column column-3">
+                <h3 class="footer-heading">Contact</h3>
+                <ul class="contact-info">
+                    <li class="address">
+                        <img src="images/gps.png" alt="Adresse" class="contact-icon">
+                        <span>74 Cité El-Merdja, Rouiba</span>
+                    </li>
+                    <li class="phone">
+                        <img src="images/phone-call.png" alt="Téléphone" class="contact-icon">
+                        <span>0658096091 - 0553347119</span>
+                    </li>
+                    <li class="email">
+                        <img src="images/email.png" alt="Email" class="contact-icon">
+                        <span>rouicomed@yahoo.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/auth-script.js"></script>
+
+    <!-- Notification Container -->
+    <div class="temp-notification" id="login-notification">
+        <div class="temp-notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="temp-notification-message">Connexion réussie !</span>
+        </div>
+    </div>
+</body>
+</html>
